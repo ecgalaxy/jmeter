@@ -1,0 +1,38 @@
+---
+
+- name: Download JMeter.
+  get_url:
+    dest: "{{ jmeter_download_dir }}"
+    url: "{{ jmeter_download_url }}"
+    owner: root
+    group: root
+    mode: "u=rwx,go=rx"  
+    checksum: "{{ jmeter_checksum }}"
+
+- name: Create installation dir.
+  file:
+    path: "{{ jmeter_install_dir }}"
+    state: directory
+    owner: "root"  
+    group: "root"  
+    mode: "u=rwx,go=rx"  
+  become: true
+
+- name: Install JMeter.
+  unarchive:
+    src: "{{ jmeter_download_dir }}/{{ jmeter_archive_name }}"
+    dest: "{{ jmeter_install_dir }}"
+    owner: "root" 
+    group: "root"
+    mode: "u=rwx,go=rx"  
+    remote_src: yes
+
+- name: Create JMeter symlink.
+  file:
+    src: "{{ jmeter_install_dir }}/{{ jmeter_name }}/bin/jmeter"
+    dest: "{{ jmeter_cli_bin }}"
+    state: link
+    owner: "root"  
+    group: "root"  
+    mode: "u=rwx,go=rx"  
+  become: true
