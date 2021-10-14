@@ -1,0 +1,10 @@
+---
+
+jmeter_version: 5.4.1
+jmeter_name: "apache-jmeter-{{ jmeter_version }}"
+jmeter_archive_name: "{{ jmeter_name }}.tgz"
+jmeter_download_dir: "/tmp"
+jmeter_download_url: "https://dlcdn.apache.org/jmeter/binaries/{{ jmeter_archive_name }}"
+jmeter_checksum: "sha512:bfc0faa84769b58c1fd498417b3a5c65749f52226bd6e3533f08ca7ea4a3798bb8d2cbd7091b443dd6837f3cbea5565c3c18e6497b40bec95616bf44dfdf590d"
+jmeter_install_dir: "/opt/jmeter"
+jmeter_cli_bin: "/usr/local/bin/jmeter"

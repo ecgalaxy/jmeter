@@ -1,0 +1,30 @@
+---
+
+- name: Include role defaults vars
+  with_first_found:
+    - "../../defaults/main.yml"
+  include_vars: "{{ item }}"
+
+- name: "Stat installation dir."
+  stat:
+    path: "{{ jmeter_install_dir }}/{{ jmeter_name }}"
+  register: directory
+ 
+- name: "Assert installation dir."
+  assert:
+    that:
+      - "directory.stat.exists"
+      - "directory.stat.isdir"
+      - "directory.stat.mode == '0755'"
+      - "directory.stat.pw_name == 'root'"
+      - "directory.stat.gr_name == 'root'"
+
+- name: "Stat cli bin link."
+  stat:
+    path: "{{ jmeter_cli_bin }}"
+  register: file
+
+- name: "Assert that cli bin link is present."
+  assert:
+    that:
+      - "file.stat.exists"
