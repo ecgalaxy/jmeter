@@ -1,23 +1,24 @@
 ---
-
 galaxy_info:
+  name: jmeter
   author: ecgalaxy
-  description: Install Apache JMeter
+  description: Installs Apache JMeter
   company: European Commission
-  platforms:
-  - name: Amazon Linux 2
-    versions:
-      - all
-  - name: EL
-    versions:
-      - 7
-      - 8
-  - name: Ubuntu
-    versions:
-      - bionic
-      - focal
   license: EUPL-1.2
-  min_ansible_version: 2.1
-  galaxy_tags: []
+  min_ansible_version: 2.5
+  platforms:
+    - name: Amazon Linux 2
+      versions:
+        - all
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+  galaxy_tags:
+    - system
 dependencies:
-  - role: common_packages   
+  - ecgalaxy.common_packages
