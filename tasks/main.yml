@@ -1,13 +1,13 @@
 ---
 - name: Download JMeter
-  get_url:
+  ansible.builtin.get_url:
     dest: "{{ jmeter_download_dir }}"
     url: "{{ jmeter_download_url }}"
     mode: "u=rwx,go=rx"
     checksum: "{{ jmeter_checksum }}"
 
 - name: Create installation dir
-  file:
+  ansible.builtin.file:
     path: "{{ jmeter_install_dir }}"
     state: directory
     owner: "root"
@@ -16,7 +16,7 @@
   become: true
 
 - name: Install JMeter
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ jmeter_download_dir }}/{{ jmeter_archive_name }}"
     dest: "{{ jmeter_install_dir }}"
     owner: "root"
@@ -26,7 +26,7 @@
   become: true
 
 - name: Create JMeter symlink
-  file:
+  ansible.builtin.file:
     src: "{{ jmeter_install_dir }}/{{ jmeter_name }}/bin/jmeter"
     dest: "{{ jmeter_cli_bin }}"
     state: link

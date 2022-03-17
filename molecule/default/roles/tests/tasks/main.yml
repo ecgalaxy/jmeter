@@ -2,15 +2,15 @@
 - name: Include role defaults vars
   with_first_found:
     - "../../defaults/main.yml"
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
 
 - name: Stat installation dir
-  stat:
+  ansible.builtin.stat:
     path: "{{ jmeter_install_dir }}/{{ jmeter_name }}"
   register: directory
 
 - name: Assert installation dir
-  assert:
+  ansible.builtin.assert:
     that:
       - "directory.stat.exists"
       - "directory.stat.isdir"
@@ -19,11 +19,11 @@
       - "directory.stat.gr_name == 'root'"
 
 - name: Stat cli bin link
-  stat:
+  ansible.builtin.stat:
     path: "{{ jmeter_cli_bin }}"
   register: file
 
 - name: Assert that cli bin link is present
-  assert:
+  ansible.builtin.assert:
     that:
       - "file.stat.exists"
