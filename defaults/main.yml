@@ -1,9 +1,9 @@
 ---
-jmeter_version: 5.4.3
+jmeter_version: 5.5
 jmeter_name: "apache-jmeter-{{ jmeter_version }}"
 jmeter_archive_name: "{{ jmeter_name }}.tgz"
 jmeter_download_dir: "/tmp"
 jmeter_download_url: "https://dlcdn.apache.org/jmeter/binaries/{{ jmeter_archive_name }}"
-jmeter_checksum: "sha512:e88802cc0dfcd6a2c8554911ae4574d7cfafcc8c6be6ade810b4677b7351831b0680d81cf2b0fb5bb4b9b3cf437528a044d7da74214a1bee351b273dbb53e439"
+jmeter_checksum: "sha512:d5d1ce795e9baf18efd3a13ecda150b4da80c3173a2c7ef0da2a5546ac6862b1edd2a2f4e52d971c7da05d879362c28dca6bf218c5f7570b5cc98f7ba73c92af"
 jmeter_install_dir: "/opt/jmeter/{{ jmeter_version }}"
 jmeter_cli_bin: "/usr/local/bin/jmeter"
