@@ -3,7 +3,6 @@
   hosts: all
   become: true
   roles:
-    - role: ecgalaxy.common_packages
     - role: jmeter
   environment:
     http_proxy: "{{ lookup('env', 'http_proxy') }}"

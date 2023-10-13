@@ -6,7 +6,8 @@ This Ansible role installs Apache JMeter.
 Requirements
 ------------
 
-In order to work JMeter requires a Java runtime present on the target machine.
+- The `unzip` command, which can be provided by `ecgalaxy.common_packages`
+- A Java runtime present on the target machine
 
 Role Variables
 --------------
@@ -19,15 +20,14 @@ Role Variables
 Dependencies
 ------------
 
-This role depends on the following ECGALAXY roles:
-
-- ecgalaxy.common_packages
+- optional: ecgalaxy.common_packages
 
 Example Playbook
 ----------------
 
     - hosts: all
       roles:
+        - ecgalaxy.bootstrap
         - ecgalaxy.common_packages
         - ecgalaxy.jmeter
 
