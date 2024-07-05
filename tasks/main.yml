@@ -22,7 +22,7 @@
     owner: "root"
     group: "root"
     mode: "u=rwx,go=rx"
-    remote_src: yes
+    remote_src: true
   become: true
 
 - name: Create JMeter symlink

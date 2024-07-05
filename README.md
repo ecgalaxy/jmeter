@@ -1,7 +1,7 @@
 ECGALAXY Apache JMeter
 ======================
 
-This Ansible role installs Apache JMeter.
+This Ansible role installs [Apache JMeter](https://jmeter.apache.org/).
 
 Requirements
 ------------
